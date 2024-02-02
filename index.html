@@ -18,15 +18,20 @@
 <div id="Client" class="tabcontent">
   <h3>Client Information</h3>
   <p>Tell us a bit about you.</p>
-	How would you like your food today?
+	
+  <!--drop down, choose 1 type-->>
+  How would you like your food today?
 	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
 	<option value=""></option>
-	<option value="Vegetarian">Vegetarian</option>
-    <option value="GlutenFree">GlutenFree</option>
-    <option value="Organic">Organic</option>
-    <option value="Non-organic">Non-organic</option>
-    <option value="None">No Selection</option>
+	<option value="Vegetarian">Vegetarian Food</option>
+  <option value="GlutenFree">Gluten Free Food</option>
+  <option value="None">No Selection</option>
 	</select>
+
+  <!--div in change??Radio java: if id is dietselect2- we take the list that we have. if it is not empty, we got through it NOT WORK?-->
+  What would you prefer?
+  <input type = "radio" id="dietSelect2" name = "dietSelect2" onchange="populateListProductChoices(this.id,'displayProduct')">
+  <!--Price Range-->
 </div>
 
 <div id="Products" class="tabcontent">
