@@ -32,10 +32,35 @@ function populateListProductChoices(slct1, slct2) {
 	
 	// s2 represents the <div> in the Products tab, which shows the product list, so we first set it empty
     s2.innerHTML = "";
-		
-	// obtain a reduced list of products based on restrictions
-    var optionArray = restrictListProducts(products, s1.value);
-
+	
+	//since we have 3 inputs (list, radio, slider) we are going to make 3 arrays to hold the result of each.
+	var optionArrayChoice1;
+	var optionArrayChoice2;
+	var optionArrayChoice3;
+	var optionArray;
+	// obtain a reduced list of products based on restrictions depending on where the changes were made.
+	if (slct1=="dietSelect"){
+		optionArrayChoice1 = restrictListProducts(products, s1.value);
+	}
+	if (slct1 =="organicChoice1"||slct1=="organicChoice2"||slct1=="organicChoice3"){
+		optionArrayChoice2= restrictListProducts(products,s1.value);
+	}
+	if (slct1=="sliderID"){
+		optionArrayChoice3= restrictListProducts(products,s1.value);
+	}
+	
+	//then we are going to find the things thar's common in these list
+	for (int i=0; i<optionArrayChoice1.length;i++){
+		for (int j =0;j<optionArrayChoice1.length;j++){
+			for (int k =0;k<optionArrayChoice1.length;k++){
+				if (optionArrayChoice1[i].name ==optionArrayChoice2[j]){
+					if (optionArrayChoice1[i].name == optionArrayChoice3[k].name){
+						optionArray[i]= optionArrayChoice1[i];
+					}
+				}
+			}
+		}
+	}
 	// for each item in the array, create a checkbox element, each containing information such as:
 	// <input type="checkbox" name="product" value="Bread">
 	// <label for="Bread">Bread/label><br>

@@ -19,7 +19,7 @@
   <h3>Client Information</h3>
   <p>Tell us a bit about you.</p>
 	
-  <!--drop down, choose 1 type-->>
+  <!--drop down, choose 1 type-->
   How would you like your food today?
 	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
 	<option value=""></option>
@@ -28,10 +28,22 @@
   <option value="None">No Selection</option>
 	</select>
 
-  <!--div in change??Radio java: if id is dietselect2- we take the list that we have. if it is not empty, we got through it NOT WORK?-->
+  <div></div>
+  <!--Radio java:MAKE THIS MAKE A LIST TOO AND THE NLOOK AT OVERLAP-->
   What would you prefer?
-  <input type = "radio" id="dietSelect2" name = "dietSelect2" onchange="populateListProductChoices(this.id,'displayProduct')">
-  <!--Price Range-->
+  <input type = "radio" id="organicChoice1" name = "organiChoice" onchange="populateListProductChoices(this.id,'displayProduct')">
+  <label for="organicChoice1">Organic Food</label>
+  <input type = "radio" id="organicChoice2" name = "organiChoice" onchange="populateListProductChoices(this.id,'displayProduct')">
+  <label for="organicChoice2">Non Organic Food</label>
+  <input type = "radio" id="organicChoice3" name = "organiChoice" onchange="populateListProductChoices(this.id,'displayProduct')">
+  <label for="organicChoice3">No Preference</label>
+
+  <div></div>
+  <!--Price Range--> <!--HTML and css for this inspired and derieved from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider_pic-->
+  <div id= "sliderID" class="slidecontainer">
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+    <p>Value: <span id="demo"></span></p>
+  </div>
 </div>
 
 <div id="Products" class="tabcontent">
