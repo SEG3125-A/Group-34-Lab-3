@@ -1,76 +1,107 @@
 // Array of products, each product is an object with different fieldset
 // A set of ingredients should be added to products
 
+//UPDATE: each food now has pictures.
 var products = [
 	{
-		name: "brocoli",
+		name: "Brocoli",
 		vegetarian: true,
 		glutenFree: true,
 		organic:true,
-		price: 1.99
+		price: 1.99,
+		source: 'pictures/brocoli.jpg',
+		alternateText: 'Brocoli picture',
+		category: 'Vegetable'
 	},
 	{
-		name: "bread",
+		name: "Bread",
 		vegetarian: true,
 		glutenFree: false,
 		organic:true,
-		price: 2.35
+		price: 2.35,
+		source: 'pictures/bread.jpg',
+		alternateText: 'Bread picture',
+		category: 'Carbs'
 	},
 	{
-		name: "salmon",
+		name: "Salmon",
 		vegetarian: false,
 		glutenFree: true,
 		organic:false,
-		price: 10.00
+		price: 10.00,
+		source: 'pictures/fish.jpg',
+		alternateText: 'Salmon picture',
+		category: 'Fish'
 	},
 	{
-		name:"carrot",
+		name:"Carrot",
 		vegetarian: true,
 		glutenFree: true,
 		organic:false,
-		price: 3.00
+		price: 3.00,
+		source: 'pictures/carrot.jpg',
+		alternateText: 'Carrot picture',
+		category: 'Vegetable'
 	},
 	{
-		name:"noodles",
+		name:"Noodles",
 		vegetarian: true,
 		glutenFree: false,
 		organic:false,
-		price: 6.00
+		price: 6.00,
+		source: 'pictures/noodles.jpg',
+		alternateText: 'Noodles picture',
+		category: 'Carbs'
 	},
 	{
-		name:"chicken poutine",
+		name:"Chicken Poutine",
 		vegetarian: false,
 		glutenFree: false,
 		organic:true,
-		price: 14.00
+		price: 14.00,
+		source: 'pictures/chickenPoutine.jpg',
+		alternateText: 'Chicken poutine picture',
+		category: 'Meal'
 	},
 	{
-		name:"tomato",
+		name:"Tomato",
 		vegetarian: true,
 		glutenFree: true,
 		organic:true,
-		price: 5.00
+		price: 5.00,
+		source: 'pictures/tomato.jpg',
+		alternateText: 'Tomato picture',
+		category: 'Fruit'
 	},
 	{
-		name:"fries",
+		name:"Fries",
 		vegetarian: true,
 		glutenFree: false,
 		organic:false,
-		price: 7.00
+		price: 7.00,
+		source: 'pictures/fries.jpg',
+		alternateText: 'Fries picture',
+		category: 'Meal'
 	},
 	{
-		name:"sunflower oil",
+		name:"Sunflower Oil",
 		vegetarian: true,
 		glutenFree: true,
 		organic:true,
-		price: 4.60
+		price: 4.60,
+		source: 'pictures/sunflowerOil.jpg',
+		alternateText: 'Sunflower oil picture',
+		category: 'Oil'
 	},
 	{
-		name:"garlic parmasean fries",
+		name:"Garlic Parmasean Fries",
 		vegetarian: true,
 		glutenFree: false,
 		organic:false,
-		price: 10.00
+		price: 10.00,
+		source: 'pictures/gpf.jpg',
+		alternateText: 'Garlic parm picture',
+		category: 'Meal'
 	}
 ];
 	
@@ -80,29 +111,29 @@ var products = [
 // prices should be included in this list, as well as a sort based on price
 
 function restrictListProducts(prods, restriction) {
-	let product_names = []; // An array to hold the names of products that meet the restriction criteria
+	let product_holder = []; // An array to hold the products that meet the restriction criteria
 
     // Loop through each product in the provided array
 	for (let i=0; i<prods.length; i+=1) {
-        // Check if the product meets the dietary restriction and add its name to the list
+        // Check if the product meets the dietary restriction and add the specific product to the list
 
 		if ((restriction == "Vegetarian") && (prods[i].vegetarian == true)){
-			product_names.push(prods[i].name);
+			product_holder.push(prods[i]);
 		}
 		else if ((restriction == "GlutenFree") && (prods[i].glutenFree == true)){
-			product_names.push(prods[i].name);
+			product_holder.push(prods[i]);
 		}
 		else if((restriction == "Non-organic") && (prods[i].organic == false)){
-			product_names.push(prods[i].name);
+			product_holder.push(prods[i]);
 		}
 		else if((restriction == "Organic")&&(prods[i].organic == false)){
-			product_names.push(prods[i].name);
+			product_holder.push(prods[i]);
 		}
 		else if (restriction == "None"){
-			product_names.push(prods[i].name);
+			product_holder.push(prods[i]);
 		}
 	}
-	return product_names; // Return the list of product names that meet the restriction
+	return product_holder; // Return the list of products that meet the restriction
 }
 
 // Calculate the total price of items, with received parameter being a list of products

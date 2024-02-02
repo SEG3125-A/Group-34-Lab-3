@@ -42,7 +42,8 @@ function populateListProductChoices(slct1, slct2) {
 		
 	for (i = 0; i < optionArray.length; i++) {
 			
-		var productName = optionArray[i];
+		var productName = optionArray[i].name;
+		var prodPrice = optionArray[i].price;
 		// create the checkbox and add in HTML DOM
 		var checkbox = document.createElement("input");
 		checkbox.type = "checkbox";
@@ -50,6 +51,13 @@ function populateListProductChoices(slct1, slct2) {
 		checkbox.value = productName;
 		s2.appendChild(checkbox);
 		
+		//create an image variable and adding it to the html
+		var imageProd = document.createElement('img');
+		imageProd.src =optionArray[i].source;
+		imageProd.alt = optionArray[i].alternateText;
+		imageProd.classList.add('img-size');
+		s2.append(imageProd);
+
 		// create a label for the checkbox, and also add in HTML DOM
 		var label = document.createElement('label')
 		label.htmlFor = productName;
@@ -62,7 +70,7 @@ function populateListProductChoices(slct1, slct2) {
 }
 	
 // This function is called when the "Add selected items to cart" button in clicked
-// The purpose is to build the HTML to be displayed (a Paragraph) 
+// The purpose is to build the HTML to be displayed (a Paragraph)
 // We build a paragraph to contain the list of selected items, and the total price
 
 function selectedItems(){
@@ -77,7 +85,7 @@ function selectedItems(){
 	var para = document.createElement("P");
 	para.innerHTML = "You selected : ";
 	para.appendChild(document.createElement("br"));
-	for (i = 0; i < ele.length; i++) { 
+	for (i = 0; i < ele.length; i++) {
 		if (ele[i].checked) {
 			para.appendChild(document.createTextNode(ele[i].value));
 			para.appendChild(document.createElement("br"));
